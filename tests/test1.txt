@@ -1,0 +1,15 @@
+Hello World
+This is a test file.
+Some lines are same.
+Some are different.
+Onyx & Gold.
+Atlas Suite.
+Go programming.
+Bubble Tea.
+Lipgloss.
+Diff Match Patch.
+Terminal UI.
+Senior Engineer.
+Workhammer.
+2026.
+Final line.

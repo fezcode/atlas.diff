@@ -1,0 +1,16 @@
+Hello World
+This is a test file.
+Some lines are identical.
+Some are very different.
+Onyx & Gold.
+Atlas Suite v2.
+Go programming language.
+Bubble Tea TUI.
+Lipgloss styling.
+Diff Match Patch library.
+Terminal User Interface.
+Staff Engineer.
+Workhammer Workspace.
+2026 Feb.
+New final line.
+Added a new line at the end.
