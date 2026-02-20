@@ -169,6 +169,11 @@ func (m model) View() string {
 }
 
 func main() {
+	if len(os.Args) > 1 && (os.Args[1] == "-v" || os.Args[1] == "--version") {
+		fmt.Println("atlas.diff v0.1.0")
+		return
+	}
+
 	if len(os.Args) < 3 {
 		fmt.Println("Usage: atlas.diff <file1> <file2>")
 		return
