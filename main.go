@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 
@@ -123,8 +122,12 @@ func (m *model) renderDiff() string {
 		}
 	}
 
+	if m.added == 0 && m.deleted == 0 {
+		return "\n  " + lipgloss.NewStyle().Foreground(green).Render("✔ No changes detected between files.")
+	}
+
 	safeWidth := m.width - 2
-	if safeWidth < 20 { safeWidth = 20 }
+	if safeWidth < 30 { safeWidth = 30 }
 	paneWidth := (safeWidth - 15) / 2
 
 	var bld strings.Builder
@@ -135,10 +138,11 @@ func (m *model) renderDiff() string {
 		}
 
 		truncate := func(s string, w int) string {
-			if lipgloss.Width(s) <= w {
-				return s + strings.Repeat(" ", w-lipgloss.Width(s))
+			w_actual := lipgloss.Width(s)
+			if w_actual <= w {
+				return s + strings.Repeat(" ", w-w_actual)
 			}
-			return s[:w] 
+			return s[:w-1] + "…"
 		}
 
 		lPart := numStyle.Render(padNum(dl.lNum)) + " " + truncate(dl.left, paneWidth)
@@ -169,12 +173,12 @@ func main() {
 		fmt.Println("Usage: atlas.diff <file1> <file2>")
 		return
 	}
-	f1, err := ioutil.ReadFile(os.Args[1])
+	f1, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		fmt.Printf("Error reading %s: %v\n", os.Args[1], err)
 		return
 	}
-	f2, err := ioutil.ReadFile(os.Args[2])
+	f2, err := os.ReadFile(os.Args[2])
 	if err != nil {
 		fmt.Printf("Error reading %s: %v\n", os.Args[2], err)
 		return
