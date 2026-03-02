@@ -13,26 +13,26 @@ import (
 
 var (
 	// Palette
-	gold   = lipgloss.Color("#FFD700")
-	silver = lipgloss.Color("#CCCCCC")
+	amber  = lipgloss.Color("#FFB642")
+	onyx   = lipgloss.Color("#050505")
 	grey   = lipgloss.Color("#555555")
-	red    = lipgloss.Color("#FF5F5F")
-	green  = lipgloss.Color("#5FFF5F")
+	red    = lipgloss.Color("#FF5F87") // Neon pink/red from todo
+	green  = lipgloss.Color("#00D787") // Neon green from todo
 
 	titleStyle = lipgloss.NewStyle().
-			Foreground(lipgloss.Color("#000000")).
-			Background(gold).
+			Foreground(onyx).
+			Background(amber).
 			Padding(0, 1).
 			Bold(true)
 
-	headerStyle = lipgloss.NewStyle().Foreground(gold)
+	headerStyle = lipgloss.NewStyle().Foreground(amber)
 	footerStyle = lipgloss.NewStyle().Foreground(grey)
-	sepStyle    = lipgloss.NewStyle().Foreground(gold).Bold(true)
+	sepStyle    = lipgloss.NewStyle().Foreground(amber).Bold(true)
 	numStyle    = lipgloss.NewStyle().Foreground(grey)
 
 	addedStyle   = lipgloss.NewStyle().Foreground(green)
 	removedStyle = lipgloss.NewStyle().Foreground(red)
-	baseStyle    = lipgloss.NewStyle().Foreground(silver)
+	baseStyle    = lipgloss.NewStyle().Foreground(lipgloss.Color("#CCCCCC"))
 	dimStyle     = lipgloss.NewStyle().Foreground(lipgloss.Color("#333333"))
 )
 
