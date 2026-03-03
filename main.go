@@ -175,6 +175,14 @@ func main() {
 		fmt.Printf("atlas.diff v%s\n", Version)
 		return
 	}
+	if len(os.Args) > 1 && (os.Args[1] == "-h" || os.Args[1] == "--help" || os.Args[1] == "help") {
+		fmt.Println("Atlas Diff - High-visibility side-by-side terminal diff tool.")
+		fmt.Println("\nUsage:")
+		fmt.Println("  atlas.diff [file1] [file2]   Compare two files")
+		fmt.Println("  atlas.diff -v                Show version")
+		fmt.Println("  atlas.diff -h                Show this help")
+		return
+	}
 
 	if len(os.Args) < 3 {
 		fmt.Println("Usage: atlas.diff <file1> <file2>")
