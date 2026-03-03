@@ -36,6 +36,8 @@ var (
 	dimStyle     = lipgloss.NewStyle().Foreground(lipgloss.Color("#333333"))
 )
 
+var Version = "dev"
+
 type diffLine struct {
 	lNum string
 	left string
@@ -170,7 +172,7 @@ func (m model) View() string {
 
 func main() {
 	if len(os.Args) > 1 && (os.Args[1] == "-v" || os.Args[1] == "--version") {
-		fmt.Println("atlas.diff v0.1.0")
+		fmt.Printf("atlas.diff v%s\n", Version)
 		return
 	}
 
